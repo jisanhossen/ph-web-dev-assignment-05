@@ -1,75 +1,24 @@
-# React + TypeScript + Vite
+DevStack 🧱
+A React app to browse dev technologies and build your own stack by adding or removing them from a sidebar.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tech Used
+React.js, TypeScript, CSS, React-Toastify, JSON, Vite
 
-Currently, two official plugins are available:
+Features
+Add / Remove Stack — Add, remove, or clear all. Duplicate add shows a warning.
+Toast Alerts — react-toastify shows a toast for every action.
+Responsive — Mobile hamburger menu, grid adjusts 3 → 2 → 1 columns.
+React Questions
+1. What is JSX and why is it used? HTML-like syntax inside JS. Easier to read/write than React.createElement().
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+2. Props vs state? Props come from the parent and can't be changed. State is a component's own data that can change.
 
-## React Compiler
+3. What does useState do, and where did you use it? Stores a value and re-renders on change. Used for myStack, loading, and the mobile menu toggle.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. What does useEffect do, and why for the JSON data? Runs code after render (side effects). Needed so the JSON loads once, not on every render.
 
-## Expanding the ESLint configuration
+5. Why does .map() need a unique key? So React can track each item correctly between re-renders. Used tech.id.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+6. What is conditional rendering? Give an example. Showing different UI based on a condition — e.g. "Your stack is empty" when myStack.length === 0.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+7. How does parent-child data flow work? Parent → child via props. Child → parent by calling a function passed down as a prop.
