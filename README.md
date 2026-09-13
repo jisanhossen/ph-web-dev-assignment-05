@@ -1,14 +1,21 @@
 DevStack 🧱
+
 A React app to browse dev technologies and build your own stack by adding or removing them from a sidebar.
+
 
 Tech Used
 React.js, TypeScript, CSS, React-Toastify, JSON, Vite
 
+
 Features
 Add / Remove Stack — Add, remove, or clear all. Duplicate add shows a warning.
+
 Toast Alerts — react-toastify shows a toast for every action.
+
 Responsive — Mobile hamburger menu, grid adjusts 3 → 2 → 1 columns.
+
 React Questions
+
 1. What is JSX and why is it used? HTML-like syntax inside JS. Easier to read/write than React.createElement().
 
 2. Props vs state? Props come from the parent and can't be changed. State is a component's own data that can change.
